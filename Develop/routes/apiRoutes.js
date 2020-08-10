@@ -20,11 +20,11 @@ module.exports = (app) => {
 
     //POST route for notes
     app.post("/api/notes", (req, res) => {
-        const id = Date.now();
-        req.body.id = id;
-        notesData.push(req.body + " \n");
+        let id = Date.now();
+        let note = req.body;
+        notesData.push(note.id + " \n");
         writeToFile("./db/db.json", JSON.stringify(notesData));
-        console.log("Notes added to database: " + notesData);
+        console.log("Notes added to database: " + notes);
         res.json(true);
     });
 
