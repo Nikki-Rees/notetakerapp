@@ -21,10 +21,11 @@ module.exports = (app) => {
     //POST route for notes
     app.post("/api/notes", (req, res) => {
         let id = Date.now();
-        let note = req.body;
-        notesData.push(note.id + " \n");
+        let title = req.body.title;
+        let text = req.body.text;
+        notesData.push({ id: id, title: title, text: text });
         writeToFile("./db/db.json", JSON.stringify(notesData));
-        console.log("Notes added to database: " + notes);
+        console.log("Notes added to database: " + notesData);
         res.json(true);
     });
 
@@ -33,7 +34,7 @@ module.exports = (app) => {
         let noteToDelete = req.params.id;
 
         for (let i = 0; i < notesData.length; i++) {
-            if (notesData[i].id === noteToDelete) {
+            if (notesData[i].id == noteToDelete) {
                 notesData.splice(i, 1);
             }
         }
