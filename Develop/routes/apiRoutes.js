@@ -1,6 +1,8 @@
 // LOADING data from the database
 const fs = require("fs")
 const notesData = require("../db/db.json");
+const { v4: uuidv4 } = require('uuid');
+
 
 function writeToFile(filePath, data) {
     fs.writeFile(filePath, data, err => {
@@ -20,7 +22,7 @@ module.exports = (app) => {
 
     //POST route for notes
     app.post("/api/notes", (req, res) => {
-        let id = Date.now();
+        let id = uuidv4();
         let title = req.body.title;
         let text = req.body.text;
         notesData.push({ id: id, title: title, text: text });
