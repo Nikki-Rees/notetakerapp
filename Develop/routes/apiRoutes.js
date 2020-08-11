@@ -27,7 +27,7 @@ module.exports = (app) => {
         let text = req.body.text;
         notesData.push({ id: id, title: title, text: text });
         writeToFile("./db/db.json", JSON.stringify(notesData));
-        console.log("Notes added to database: " + id + title);
+        console.log(`Notes added to database: ID: ${id} Topic: ${title}`);
         res.json(true);
     });
 
