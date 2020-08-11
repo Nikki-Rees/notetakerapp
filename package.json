@@ -1,13 +1,13 @@
 {
   "name": "note-taker",
   "version": "1.0.0",
-  "description": "",
+  "description": "A note taking app that allows users to create, save and delete notes within their browser",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"
   },
-  "author": "",
+  "author": "Nikki Rees",
   "license": "ISC",
   "dependencies": {
     "express": "^4.16.4",
